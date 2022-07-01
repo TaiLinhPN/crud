@@ -7,9 +7,15 @@ class FoodCRUDController extends Controller
 
 public function index()
 {
-    $data['foods'] = Food::orderBy('id','desc')->paginate(2);
+    $data['foods'] = Food::orderBy('id','desc')->paginate(3);
     return view('foods.index', $data);
 }
+
+// public function showview()
+// {
+//     $data['foodss'] = DB::table('food')->select('category', '3333')->get();
+//     return view('foods.index', $data);
+// }
 
 public function create()
 {
@@ -35,18 +41,6 @@ public function create()
     return redirect()->route('foods.index')
     ->with('success','Food has been created successfully.');
 }
-
-
-public function show(Food $food)
-{
-    return view('foods.show',compact('food'));
-} 
-
-public function edit(Food $food)
-{
-    return view('foods.edit',compact('food'));
-}
-
 
 public function destroy(Food $food)
 {

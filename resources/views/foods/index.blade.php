@@ -61,6 +61,8 @@
             </tr>
             @endforeach
         </table>
+
+    
         {{ $foods->links() }}
 </body>
 
