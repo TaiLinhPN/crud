@@ -14,11 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        
+        Food::factory()->create([
+            'name' => 'Test User',
+            'price' => '2000000',
+            'img' => 'https://images.foody.vn/res/g100/998991/prof/s576x330/foody-upload-api-foody-mobile-11fba6ad9fc6a112928c-200115170746.jpg',
+            'sub' => 'sub ',
+            'category' => 'Test User',
+        ]);
+        $this ->call(Food::class);
     }
 }

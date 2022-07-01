@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\UserController;
-
-use App\Http\Controllers\CompanyCRUDController;
+use App\Http\Controllers\FoodCRUDController;
 
 
 /*
@@ -22,16 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users/create', [UserController::class, 'create']);
-Route::post('/users/create', [UserController::class, 'store']);
-
-Route::get('/users/update/{id}', [UserController::class, 'edit']);
-Route::post('/users/update/{id}', [UserController::class, 'update']);
-
-Route::get('/users/delete/{id}', [UserController::class, 'delete']);
-
-Route::get('/users', [UserController::class, 'index']);
-
-
-
-Route::resource('companies', CompanyCRUDController::class);
+Route::resource('/foods', FoodCRUDController::class);

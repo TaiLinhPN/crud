@@ -12,15 +12,18 @@
         .hidden{
             display: none;
         }
+        .imgFood{
+            width: 100%;
+        }
     </style>
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Linh conmany</h2>
+                    <h2>Linhh restaurant</h2>
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('companies.create') }}"> Create Company</a>
+                    <a class="btn btn-success" href="{{ route('foods.create') }}"> Create Food</a>
                 </div>
             </div>
         </div>
@@ -32,20 +35,24 @@
         <table class="table table-bordered">
             <tr>
                 <th>S.No</th>
-                <th>Company Name</th>
-                <th>Company Email</th>
-                <th>Company Address</th>
+                <th>Food Name</th>
+                <th>Food Image</th>
+                <th>Food price</th>
+                <th>Food sub</th>
+                <th>Food category</th>
                 <th width="280px">Action</th>
             </tr>
-            @foreach ($companies as $company)
+            @foreach ($foods as $food)
             <tr>
-                <td>{{ $company->id }}</td>
-                <td>{{ $company->name }}</td>
-                <td>{{ $company->email }}</td>
-                <td>{{ $company->address }}</td>
+                <td>{{ $food->id }}</td>
+                <td>{{ $food->name }}</td>
+                <td><img class="imgFood" src="{{ $food->img }}" alt="food"></td>
+                <td>{{ $food->price }}</td>
+                <td>{{ $food->sub }}</td>
+                <td>{{ $food->category }}</td>
                 <td>
-                    <form action="{{ route('companies.destroy',$company->id) }}" method="Post">
-                        <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
+                    
+                    <form action="{{ route('foods.destroy',$food->id) }}" method="Post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -54,7 +61,7 @@
             </tr>
             @endforeach
         </table>
-        {{ $companies->links() }}
+        {{ $foods->links() }}
 </body>
 
 </html>
